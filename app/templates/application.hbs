@@ -1,0 +1,9 @@
+{{page-title "ToDoList"}}
+<h1 id="title"> ToDo-Lists </h1>
+<span>
+  <LinkTo @route="index">All</LinkTo>
+  <LinkTo @route="tasks.active">Active</LinkTo>
+  <LinkTo @route="tasks.today">Today</LinkTo>
+  <LinkTo @route="tasks.week">Week</LinkTo>
+</span>
+{{outlet}}

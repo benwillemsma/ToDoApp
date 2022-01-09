@@ -1,0 +1,6 @@
+<label for={{@id}} class="visually-hidden">{{@id}} type selection</label>
+<select id={{@id}} {{on "change" @onChange}}>
+  {{#each @types as |type index|}}
+    <option value={{index}}>{{type}}</option>
+  {{/each}}
+</select>

@@ -1,0 +1,68 @@
+<div class="inspector outer-back">
+  <h4>{{@task.name}}</h4>
+  <div class="list inner-back">
+    <div>
+      <label for="new-start-time">Task start time:</label>
+      <br>
+      <input 
+        id="new-start-time" 
+        type="datetime-local" 
+        name="start"
+        {{on "change" this.updateStartDate}}
+      >
+    </div>
+    <div>
+      <label for="new-due-time">Task due time :</label>
+      <br>
+      {{#if this.isDuration}}
+        <input 
+          id="new-due-time" 
+          type="number" 
+          name="due" 
+          value="1"
+          {{on "change" this.updateDueValue}}
+        >
+        <Helpers::TypeSelect 
+          @id="interval-type" 
+          @types={{this.intervalTypes}} 
+          @onChange={{this.updateDueValueType}} 
+        />
+      {{else}}
+        <input 
+          id="new-due-time" 
+          type="datetime-local" 
+          name="due" 
+          value="1"
+          {{on "change" this.updateDueDate}}
+        >
+      {{/if}}
+      <Helpers::TypeSelect 
+        @id="due-type" 
+        @types={{this.dueTypes}} 
+        @onChange={{this.updateDueType}} 
+      />
+    </div>
+    <div>
+      <label for="new-repeat">repeat inverval:</label>
+      <br>
+      {{#if this.repeatType}}
+        <input 
+          id="new-repeat" 
+          type="number" 
+          name="repeat" 
+          value="1"
+          {{on "change" this.updateRepeatValue}}
+        >
+      {{/if}}
+      <Helpers::TypeSelect 
+        @id="repeat-type" 
+        @types={{this.intervalTypes}} 
+        @onChange={{this.updateRepeatType}} 
+      />
+    </div>
+    <div>
+      <button id="submit new" type="button" {{on "click" (fn scheduleTask @task)}}>Schedule Task</button>
+      <button type="button" {{on "click" (fn unscheduledTask @task)}}>Clear Tasks (Temp)</button>
+    </div>
+  </div>
+</div>

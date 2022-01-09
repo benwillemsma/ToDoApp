@@ -1,0 +1,119 @@
+@import '_links.css';
+*{
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Courier, monospace;
+  font-size: 1.2em;
+  margin-left: 2em;
+  width: 75%;
+}
+
+.inspector{
+  position:absolute;
+  right: 5px;
+  top: 10px;
+  height: 95%;
+  width: 20%;
+}
+
+.pass-through{
+  display:contents;
+}
+
+.visually-hidden {
+  border-width: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.grow { transition: all .075s ease-out; }
+.grow:hover { 
+  transform: scale(1.05);
+}
+
+/* Drag/Drop */
+.draggable{
+  opacity:inherit;
+  cursor: grab;
+}
+  
+.dragging{
+  opacity:0.6;
+  cursor: grabbing;
+}
+
+/* Backgrounds */
+.outer-back{
+  background: grey;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin: 1em;
+}
+
+.inner-back{
+  background:lightgray;
+  border-radius: 0.3em;
+  padding: 0.1em;
+  margin: 0.1em;
+}
+
+.single-back{
+  text-align: center;
+  margin: auto;
+  background: white;
+  border-radius: 0.2em;
+  height: 1em;
+  width: 1em;
+}
+
+/* Groupings */
+.container {
+  display: flex;
+  flex-wrap:nowrap;
+  align-items:flex-start;
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+}
+
+.row{
+  display: flex;
+  flex-direction:row;
+}
+
+.start{
+  display: flex;
+  align-self: flex-start;
+  text-align: center;
+  margin: auto;
+  flex: 1;
+  padding: 0.3em;
+  gap: 10px;
+}
+
+.center{
+  display: flex;
+  align-self: center;
+  text-align: start;
+  padding: 0.3em;
+  flex: 3;
+}
+
+.end{
+  display: flex;
+  align-self: flex-end;
+  text-align: end;
+  margin: auto;
+  flex: 1;
+  padding: 0.3em;
+  gap: 10px;
+}

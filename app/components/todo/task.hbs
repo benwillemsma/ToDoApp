@@ -1,0 +1,32 @@
+<div class="container row">
+  <Helpers::Swappablelist
+    @listItems={{@list}}
+    @droptag="task"
+    @direction="row"
+    as |subtask|
+  >
+    <div class="grow list outer-back">
+      <Todo::item
+        @header={{subtask.children}}
+        @task={{subtask}} 
+        @removeTask={{this.removeTask}}
+        {{draggable droptag="task" item=subtask}}
+      />
+      {{#if subtask.children}}
+        <Todo::list 
+          @task={{subtask}}
+          @removeTask={{this.removeTask}} 
+        />
+      {{/if}}
+    </div>
+  </Helpers::Swappablelist>
+  <Todo::NewTask
+    class="row outer-back"
+    @placeHolder="new Task"
+    @inputText={{this.inputText}}
+    @createNew={{this.createTask}}
+    @task= {{@task}}
+    @list= {{@list}}
+  />
+</div>
+{{yield}}

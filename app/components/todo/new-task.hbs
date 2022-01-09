@@ -1,0 +1,13 @@
+<div ...attributes>
+  <label for={{concat @placeHolder "-input-text"}} class="visually-hidden">{{@placeHolder}} input</label>
+  <Textarea 
+    id={{concat @placeHolder "-input-text"}}
+    rows="1"
+    @value={{@inputText}} 
+    placeholder={{@placeHolder}}
+  />
+  
+  <label for={{concat @placeHolder "-input-add"}} class="visually-hidden">add {{@placeHolder}}</label>
+  <button id={{concat @placeHolder "-input-add"}} type="button" 
+    {{on "click" (fn @createNew (if @inputText @inputText @placeHolder) @task @pos)}}>Add</button>
+</div>

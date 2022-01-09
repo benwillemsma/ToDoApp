@@ -1,0 +1,27 @@
+<div ...attributes class="row {{if @header "" "inner-back"}}">
+  <div class="center" >
+    {{#if @task.complete}}
+      <del>{{@task.name}}</del>
+    {{else}}
+      {{@task.name}}
+    {{/if}}
+  </div>
+  <div class="end">
+    {{#if this.childCount}}
+      {{this.status}}
+    {{else}}
+      {{#let (concat "task-" @task.id "-complete") as |completeId|}}
+        <label for={{completeId}} class="visually-hidden">toggle {{@task.name}}</label>
+        <input id={{completeId}} type="checkbox" checked={{@task.complete}} value={{@task.complete}} {{on "change" (fn this.toggle @task)}}/>
+      {{/let}}
+      {{#let (concat "task-" @task.id "-remove") as |removeId|}}
+        <label for={{removeId}} class="visually-hidden">remove {{@task.name}}</label>
+        <button id={{removeId}} type="button" {{on "click" (fn @removeTask @task)}}> x </button>
+      {{/let}}
+    {{/if}}
+    {{#let (concat "task-" @task.id "-options") as |optionsId|}}
+      <label for={{optionsId}} class="visually-hidden">remove {{@task.name}}</label>
+      <LinkTo id={{optionsId}} class="single-back" @route="{{@task.constructor.modelName}}s.{{@task.constructor.modelName}}" @model={{@task.id}}> O </LinkTo>
+    {{/let}}
+  </div>
+</div>

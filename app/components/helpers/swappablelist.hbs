@@ -1,0 +1,20 @@
+{{#each this.sortedItems as |item|}}
+  <div
+    {{drop-zone droptag=@droptag item=item list=this.sortedItems}}
+    {{compass once=true vCenter=0.3 hCenter=0.9 anySection=this.isCustomSort
+      callbacks=(array 
+      (hash 
+        name=(if this.isVertical 'top' 'left')
+        handle=this.dragObject.moveItem
+        params=(array item this.sortedItems -1)
+      )
+      (hash
+        name=(if this.isVertical 'bottom' 'right')
+        handle=this.dragObject.moveItem
+        params=(array item this.sortedItems 1)
+      ))
+    }}
+  >
+    {{yield item}}
+  </div>
+{{/each}}

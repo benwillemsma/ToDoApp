@@ -1,0 +1,13 @@
+<Helpers::Swappablelist 
+  @listItems={{@task.children}} 
+  @OnItemReordered={{this.itemsReordered}}
+  @droptag="task" 
+  @direction='list'
+  as |subtask|
+>
+  <Todo::Item class="grow"
+    @task={{subtask}} 
+    @removeTask={{@removeTask}}
+    {{draggable droptag="task" item=subtask}}
+  />
+</Helpers::Swappablelist>

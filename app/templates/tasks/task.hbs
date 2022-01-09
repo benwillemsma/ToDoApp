@@ -1,0 +1,8 @@
+{{page-title "Task"}}
+<h2 {{drop-zone droptag="task" item=@model.parent list=@model.parent.children}}>
+  {{@model.name}}
+</h2>
+<Todo::Task @task={{@model}} @list={{@model.children}}/>
+
+<Scheduler @task={{@model}}/>
+{{outlet}}
