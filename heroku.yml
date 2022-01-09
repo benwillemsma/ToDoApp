@@ -1,5 +1,5 @@
 build:
-  config: 
-    PROXY_URL: http://web:3000
   docker:
     web: Dockerfile
+  config: 
+    PROXY_URL: http://web:3000
