@@ -3,9 +3,9 @@ RUN apt-get update -y
 WORKDIR /myapp
 
 RUN npm install -g ember-cli@3.28.0
-RUN npm install
 EXPOSE 4200
 
 Copy . /myapp
+RUN npm install
 
 CMD ember server --proxy $PROXY_URL
