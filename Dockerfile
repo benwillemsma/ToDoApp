@@ -7,5 +7,6 @@ EXPOSE 4200
 
 Copy . /myapp
 RUN npm install
+RUN ember build
 
-CMD ember server --proxy $PROXY_URL
+CMD ember server --proxy ${PROXY_URL}
