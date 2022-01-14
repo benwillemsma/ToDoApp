@@ -1,6 +1,3 @@
-setup:
-  config:
-    PROXY_URL: https://todo-ben-front.herokuapp.com
 build:
   docker:
     web: Dockerfile
