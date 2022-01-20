@@ -15,16 +15,18 @@
       <label for="new-due-time">Task due time :</label>
       <br>
       {{#if this.isDuration}}
-        <input 
-          id="new-due-time" 
-          type="number" 
-          name="due" 
-          value="1"
-          {{on "change" this.updateDueValue}}
-        >
+        {{#if this.dueValueType}}
+          <input 
+            id="new-due-time" 
+            type="number" 
+            name="due" 
+            value="1"
+            {{on "change" this.updateDueValue}}
+          >
+        {{/if}}
         <Helpers::TypeSelect 
           @id="interval-type" 
-          @types={{this.intervalTypes}} 
+          @types={{this.timeHelpers.intervalTypes}} 
           @onChange={{this.updateDueValueType}} 
         />
       {{else}}
@@ -56,7 +58,7 @@
       {{/if}}
       <Helpers::TypeSelect 
         @id="repeat-type" 
-        @types={{this.intervalTypes}} 
+        @types={{this.timeHelpers.intervalTypes}} 
         @onChange={{this.updateRepeatType}} 
       />
     </div>

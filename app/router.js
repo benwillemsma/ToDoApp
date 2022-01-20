@@ -11,8 +11,5 @@ Router.map(function () {
 
   this.route('tasks', function () {
     this.route('task', { path: '/:task_id' });
-    this.route('active');
-    this.route('today');
-    this.route('week');
   });
 });

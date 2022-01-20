@@ -1,6 +1,11 @@
+<Helpers::TypeSelect 
+  @id="showingType" 
+  @types={{this.showingTypes}} 
+  @onChange={{this.updateShowing}} 
+/>
 <div class="container row">
   <Helpers::Swappablelist
-    @listItems={{@list}}
+    @listItems={{this.shownTasks}}
     @droptag="task"
     @direction="row"
     as |subtask|
@@ -20,13 +25,15 @@
       {{/if}}
     </div>
   </Helpers::Swappablelist>
-  <Todo::NewTask
-    class="row outer-back"
-    @placeHolder="new Task"
-    @inputText={{this.inputText}}
-    @createNew={{this.createTask}}
-    @task= {{@task}}
-    @list= {{@list}}
-  />
+  {{#unless @noNewTask}}
+    <Todo::NewTask
+      class="row outer-back"
+      @placeHolder="new Task"
+      @inputText={{this.inputText}}
+      @createNew={{this.createTask}}
+      @task= {{@task}}
+      @list= {{@list}}
+    />
+  {{/unless}}
 </div>
 {{yield}}

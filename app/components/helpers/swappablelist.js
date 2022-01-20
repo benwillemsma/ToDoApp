@@ -27,7 +27,7 @@ export default class SwappablelistComponent extends Component {
   @action changeSortMethod(newSortBy) {
     this.customSort = false;
     this.args.sortBy = newSortBy;
-    dragObject.redistrubute(sortedItems);
+    this.dragObject.redistrubute(sortedItems);
     this.dragObject.saveItems();
   }
 }
