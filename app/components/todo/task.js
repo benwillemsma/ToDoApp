@@ -14,7 +14,6 @@ export default class TodotaskComponent extends Component {
     let tasks = [];
     this.args.list.forEach((task) => {
       if (this.showingValue != 0) {
-        var shouldShow = false;
         var start = Date.now();
         var end = Date.now();
 
@@ -30,7 +29,9 @@ export default class TodotaskComponent extends Component {
             end = this.timeHelpers.addInterval([start, 7, 'day']);
             end.setUTCHours(23, 59, 59, 999);
           }
-          if (this.timeHelpers.timesOverlap(sTask.started, sTask.due, start, end)) {
+          if (
+            this.timeHelpers.timesOverlap(sTask.started, sTask.due, start, end)
+          ) {
             tasks.addObject(task);
           }
         });

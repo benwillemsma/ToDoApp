@@ -12,15 +12,16 @@
   >
     <div class="grow list outer-back">
       <Todo::item
-        @header={{subtask.children}}
         @task={{subtask}} 
+        @header={{subtask.children}}
         @removeTask={{this.removeTask}}
         {{draggable droptag="task" item=subtask}}
+        {{inspectable type="task" item=subtask}}
       />
       {{#if subtask.children}}
         <Todo::list 
           @task={{subtask}}
-          @removeTask={{this.removeTask}} 
+          @removeTask={{this.removeTask}}
         />
       {{/if}}
     </div>

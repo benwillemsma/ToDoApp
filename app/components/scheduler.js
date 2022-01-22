@@ -40,7 +40,11 @@ export default class SchedulerComponent extends Component {
       if (date) this.dueDate = date;
       else this.dueDate = null;
     } else {
-      this.dueDate = this.timeHelpers.addInterval([this.startDate, this.dueValue, this.dueType]);
+      this.dueDate = this.timeHelpers.addInterval([
+        this.startDate,
+        this.dueValue,
+        this.dueType,
+      ]);
     }
   }
 
@@ -70,7 +74,7 @@ export default class SchedulerComponent extends Component {
     this.repeat = this.timeHelpers.addInterval([
       this.startDate,
       this.repeatValue,
-      this.repeatType
+      this.repeatType,
     ]);
   }
 

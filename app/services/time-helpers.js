@@ -1,15 +1,7 @@
 import Service from '@ember/service';
 
 export default class TimeHelpersService extends Service {
-  intervalTypes = [
-    'None',
-    'minute',
-    'hour',
-    'day',
-    'week',
-    'month',
-    'year',
-  ];
+  intervalTypes = ['None', 'minute', 'hour', 'day', 'week', 'month', 'year'];
 
   timesOverlap(start1, end1, start2, end2) {
     return end1 > start2 && start1 < end2;

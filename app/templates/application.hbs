@@ -1,3 +1,6 @@
 {{page-title "ToDoList"}}
 <h1 id="title"> ToDo-Lists </h1>
 {{outlet}}
+{{#if this.inspector.inspectedItem}}
+  {{component this.inspector.inspectComponent task=this.inspector.inspectedItem}}
+{{/if}}
